@@ -5,25 +5,29 @@ This is building a container from scratch
 
 ### Build image
 *(If you want to develop yourself)* 
-docker build --tag=hello-duke-cli-210 .
+docker build --tag=hello-world-js .
 
 ### List docker images
 docker image ls
 
 ### Run my newly built container
 
-docker run -it hello-duke-cli-210 python app.py --name "Big John"
+docker run -it hello-world-js python app.py --name "Big John"
+
+### Tag the image to match your DockerHub Repo Name
+
+docker tag hello-world-js:latest jingjingshi09/hello-world-js:latest
 
 ### Push to Docker Hub
 
 *Note:  You will need to change for your Docker Hub Repo*
-docker push noahgift/duke102:tagname
+docker push jingjingshi09/hello-world-js:latest
 
 ## Run it yourself
 
 ```bash
-docker pull noahgift/cloudapp:latest
-docker run -it noahgift/cloudapp bash 
+docker pull jingjingshi09/hello-world-js:latest
+docker run -it jingjingshi09/hello-world-js:latest
 
 #then run python app.py --help
 ```
@@ -31,7 +35,7 @@ docker run -it noahgift/cloudapp bash
 ## Pass in a command
 
 ```bash
-docker run -it noahgift/cloudapp python app.py --name "Big John"
+docker run -it jingjingshi09/hello-world-js:latest python app.py --name "Big John"
 #the output
 Hello Big John!
 ```
